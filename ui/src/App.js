@@ -13,7 +13,10 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
+          <h1>Vector cross product</h1>
+          <h2>New calculation</h2>
           <CrossProductForm/>
+          <h2>Calculation history</h2>
           <CalculationHistory/>
         </div>
       </Provider>

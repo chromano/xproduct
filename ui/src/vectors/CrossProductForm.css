@@ -5,4 +5,10 @@ form .field {
 form .submit-row button {
   font-size: 1.2em;
   padding: 5px;
+  margin: 15px;
+}
+
+form .result {
+  margin: 15px;
+  margin-left: 30px;
 }

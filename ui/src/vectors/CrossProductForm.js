@@ -55,7 +55,7 @@ class CrossProductForm extends Component {
         {this.props.calculation.loading ?
         <div className="loading">Loading...</div> : ''}
         {this.props.calculation.result ?
-        <div className="result">= {this.props.calculation.result.origin}</div>: ''}
+        <div className="result">RESULT => {this.props.calculation.result.origin}</div>: ''}
       </form>
     );
   }
