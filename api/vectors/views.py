@@ -8,7 +8,7 @@ from .serializers import CrossProductSerializer
 class CrossProductView(mixins.CreateModelMixin,
                        mixins.ListModelMixin,
                        viewsets.GenericViewSet):
-    queryset = CrossProductResult.objects.all()
+    queryset = CrossProductResult.objects.all().order_by('-created')
     serializer_class = CrossProductSerializer
 
     def list(self, *args, **kwargs):
