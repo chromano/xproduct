@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import './CrossProductForm.css';
 import VectorFormField from './VectorFormField';
-import { calcProduct, inputVector } from './actions';
+import { calcCrossProduct, inputVector } from './actions';
 
 const mapStateToProps = (state, props) => {
   return {
@@ -14,7 +14,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    onCalculate: () => dispatch(calcProduct()),
+    onCalculate: () => dispatch(calcCrossProduct()),
     onChange: (id, value) => dispatch(inputVector(id, value))
   };
 };
@@ -55,7 +55,7 @@ class CrossProductForm extends Component {
         {this.props.calculation.loading ?
         <div className="loading">Loading...</div> : ''}
         {this.props.calculation.result ?
-        <div className="result">= RESULT</div>: ''}
+        <div className="result">= {this.props.calculation.result.origin}</div>: ''}
       </form>
     );
   }
