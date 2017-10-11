@@ -1,0 +1,21 @@
+version: "2"
+services:
+    api:
+        restart: always
+        build: ./api
+        links:
+            - db
+    ui:
+        restart: always
+        build: ./ui
+        links:
+            - api
+        ports:
+          - "80"
+    db:
+        restart: always
+        image: postgres
+        environment:
+            POSTGRES_DB: xproduct
+            POSTGRES_PASSWORD: admin
+            POSTGRES_USER: admin
