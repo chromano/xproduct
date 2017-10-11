@@ -28,6 +28,20 @@ const calculation = (state = {loading: false, result: null}, action) => {
   }
 };
 
-const vectorsReducers = combineReducers({inputs, calculation});
+const history = (state = {list: []}, action) => {
+  switch(action.type) {
+    case 'CALCULATION_RESULT':
+      const list = [...state.list, action.result];
+      return Object.assign({}, state, {list});
+    default:
+      return state;
+  }
+};
+
+const vectorsReducers = combineReducers({
+  inputs,
+  calculation,
+  history
+});
 
 export default vectorsReducers;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 
 import configureStore from './configureStore';
+import CalculationHistory from './vectors/CalculationHistory';
 import CrossProductForm from './vectors/CrossProductForm';
 import './App.css';
 
@@ -13,6 +14,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <CrossProductForm/>
+          <CalculationHistory/>
         </div>
       </Provider>
     );
