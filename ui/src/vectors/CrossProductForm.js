@@ -14,7 +14,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    onCalculate: () => dispatch(calcCrossProduct()),
+    onCalculate: (vectors) => dispatch(calcCrossProduct(vectors)),
     onChange: (id, value) => dispatch(inputVector(id, value))
   };
 };
@@ -33,29 +33,31 @@ class CrossProductForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.onCalculate && this.props.onCalculate();
+    this.props.onCalculate && this.props.onCalculate(this.props.inputs);
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="field">
-          <VectorFormField name="vector_a" onChange={this.handleChange}/>
+          <VectorFormField name="vector1" onChange={this.handleChange}/>
         </div>
         <div className="field">
-          <VectorFormField name="vector_b" onChange={this.handleChange}/>
+          <VectorFormField name="vector2" onChange={this.handleChange}/>
         </div>
         <div className="submit-row">
           <button type="submit"
-            disabled={!this.props.inputs.vector_a
-              || !this.props.inputs.vector_b}>
+            disabled={!this.props.inputs.vector1
+              || !this.props.inputs.vector2}>
             Calculate cross product
           </button>
         </div>
         {this.props.calculation.loading ?
         <div className="loading">Loading...</div> : ''}
         {this.props.calculation.result ?
-        <div className="result">RESULT => {this.props.calculation.result.origin}</div>: ''}
+        <div className="result">
+          RESULT => [{this.props.calculation.result.result.join(',')}]
+        </div>: ''}
       </form>
     );
   }

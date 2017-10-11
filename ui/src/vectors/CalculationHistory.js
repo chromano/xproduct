@@ -13,8 +13,8 @@ class CalculationHistory extends Component {
   render() {
     const list = this.props.history.list.map(result => {
       return (
-        <li>
-          <pre>{result.origin}</pre>
+        <li key={result.id}>
+          <pre>{result.created} - [{result.vector1.join(',')}] &times; [{result.vector2.join(',')}] = [{result.result.join(',')}]</pre>
         </li>
       );
     });

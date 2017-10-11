@@ -31,8 +31,12 @@ const calculation = (state = {loading: false, result: null}, action) => {
 const history = (state = {list: []}, action) => {
   switch(action.type) {
     case 'CALCULATION_RESULT':
-      const list = [...state.list, action.result];
+      const list = [action.result, ...state.list];
       return Object.assign({}, state, {list});
+    case 'HISTORY_RECEIVED':
+      return Object.assign({}, state, {
+        list: action.list
+      });
     default:
       return state;
   }

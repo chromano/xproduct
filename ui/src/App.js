@@ -4,9 +4,12 @@ import { Provider } from 'react-redux'
 import configureStore from './configureStore';
 import CalculationHistory from './vectors/CalculationHistory';
 import CrossProductForm from './vectors/CrossProductForm';
+import { loadCalcHistory } from './vectors/actions';
 import './App.css';
 
 const store = configureStore();
+
+store.dispatch(loadCalcHistory());
 
 class App extends Component {
   render() {
