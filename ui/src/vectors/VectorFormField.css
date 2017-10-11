@@ -1,0 +1,11 @@
+div.vector span {
+    font-family: monospace;
+    font-size: 1.8em;
+}
+
+div.vector input {
+    display: inline-block;
+    width: 100px;
+    margin: 0px 5px 0px 5px;
+    font-size: 1.2em;
+}
